@@ -4,17 +4,6 @@
 // equals sign to calculate
 // operate function runs on = (takes 2 numbers & operator and returns)
 
-let oneButton = document.getElementsByClassName("div1")
-let twoButton = document.getElementsByClassName("div2")
-let threeButton = document.getElementsByClassName("div3")
-let fourButton = document.getElementsByClassName("div4")
-let fiveButton = document.getElementsByClassName("div5")
-let sixButton = document.getElementsByClassName("div6")
-let sevenButton = document.getElementsByClassName("div7")
-let eightButton = document.getElementsByClassName("div8")
-let nineButton = document.getElementsByClassName("div9")
-let zeroButton = document.getElementsByClassName("div21")
-let doubleZeroButton = document.getElementsByClassName("div22")
 let displayArray = []
 
 let solutionOutput = document.getElementById("solution");
@@ -25,20 +14,10 @@ displayValue.textContent = displayArray.join('')
 
 // pressing function sets operator
 
-// oneButton.addEventListener("click", () =>
-//     displayArray.push(1)
-// );
 
 // Create the functions that populate the display when you click the number buttons. You should be storing the ‘display value’ in a variable somewhere for use in the next step.
 
-// set new class input add event listener for anthing with input clicked use .textcontent to output
-// function addinput() {
-//     displayArray.push(inputButton.textContent)
-// }
-
 let inputButton = document.getElementsByClassName("input")
-
-// inputButton.addEventListener("click", addinput)
 
 const buttonInputs = document.querySelectorAll(".input")
 
@@ -83,7 +62,7 @@ function multiply(num1, num2) {
 
 function divide(num1, num2) {
     if (num2 === 0) {
-        return "ERROR!"
+        return solutionOutput.textContent = "ERROR!"
     } else {
         return num1 / num2
     }
