@@ -52,6 +52,13 @@ function handleClick(e) {
     displayValue.textContent = displayArray.join('')
 }
 
+//backspace clear , if statement reset operator
+
+function backspaceCLR() {
+    displayArray.pop()
+    displayValue.textContent = displayArray.join('')
+}
+
 // pressing number clears calculator
 function clearbtn() {
     solutionOutput.textContent = ""
