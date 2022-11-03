@@ -4,9 +4,17 @@
 // equals sign to calculate
 // operate function runs on = (takes 2 numbers & operator and returns)
 
-// pressing number clears calculator
-
+let solutionOutput = document.getElementById("solution");
+let displayValue = document.getElementById("display-value");
 let operator = ""
+
+// pressing function sets operator
+
+// pressing number clears calculator
+function clearbtn() {
+    solutionOutput.textContent = ""
+    displayValue.textContent = ""
+}
 
 function add(num1, num2) {
     return num1 + num2
@@ -32,10 +40,7 @@ function percentage(num) {
     return num / 100
 }
 
-function clear() {
-    //set solution to ""
-    //set display-value to ""
-}
+
 
 function operate(num1, num2, operator) {
     if (operator == "add") {
