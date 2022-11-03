@@ -8,7 +8,7 @@
 
 * {
   box-sizing: border-box;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   font-family: "Lato", sans-serif;
   font-weight: bold;
   /* regular, bold, bold italic */
@@ -23,7 +23,7 @@ body {
 
 .hvr:hover {
   color: var(--black);
-  background-color: whitesmoke;
+  background-color: var(--creme);
 }
 
 .grow:active {
@@ -96,6 +96,7 @@ main > div > div {
   border-top: none;
   border-radius: 0;
   font-weight: bold;
+  background-color: #000000;
 }
 .div11 {
   display: flex;
@@ -105,6 +106,7 @@ main > div > div {
   grid-area: 1 / 1 / 2 / 5;
   border-bottom: none;
   border-radius: 0%;
+  background-color: #000000;
 }
 
 #solution {

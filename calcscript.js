@@ -32,6 +32,11 @@ function percentage(num) {
     return num / 100
 }
 
+function clear() {
+    //set solution to ""
+    //set display-value to ""
+}
+
 function operate(num1, num2, operator) {
     if (operator == "add") {
         return add(num1, num2)
