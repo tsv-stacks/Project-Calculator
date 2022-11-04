@@ -12,12 +12,13 @@ let operator = ""
 
 displayValue.textContent = displayArray.join('')
 
+// add keyboard support
+
 // function to split array into two numbers
 
 function arrayToNum() {
     // filter operators, save second and at end of function set it to operator
-    //for loop (i - 1) to stop two operators in a row
-    //14 max for array before shrinking array size - make new function
+
 
     console.log(displayArray)
     // operate(num1, num2, operator)
@@ -40,6 +41,10 @@ function handleClick(e) {
     let { id } = e.target
     displayArray.push(id)
     displayValue.textContent = displayArray.join('')
+    //for loop (i - 1) to stop two operators in a row
+    // loop not required displayArray.pop() !== number && id != number not 3 === as string vs number
+    //second array to match operator with function to prevent overwriting
+    //14 max for array before shrinking array size - make new function
 }
 
 //backspace clear , if statement reset operator
@@ -59,7 +64,6 @@ function clearbtn() {
 }
 
 // maths functions
-
 function add(num1, num2) {
     return num1 + num2
 }
