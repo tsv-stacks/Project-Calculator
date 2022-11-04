@@ -157,14 +157,14 @@ main > div > div {
 }
 /* FOOTER */
 footer {
-  margin-left: 10%;
-  margin-right: 10%;
+  margin: 0 auto;
+  max-width: 400px;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  align-content: center;
   font-style: italic;
   font-weight: bold;
-  opacity: 1;
 }
 
 footer a {

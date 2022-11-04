@@ -12,6 +12,17 @@ let operator = ""
 
 displayValue.textContent = displayArray.join('')
 
+// function to split array into two numbers
+
+function arrayToNum() {
+    // filter operators, save second and at end of function set it to operator
+    //for loop (i - 1) to stop two operators in a row
+    //14 max for array before shrinking array size - make new function
+
+    console.log(displayArray)
+    // operate(num1, num2, operator)
+}
+
 // pressing function sets operator
 
 
@@ -34,7 +45,8 @@ function handleClick(e) {
 //backspace clear , if statement reset operator
 
 function backspaceCLR() {
-    displayArray.pop()
+    let popped = displayArray.pop()
+    console.log(popped)
     displayValue.textContent = displayArray.join('')
 }
 
@@ -62,7 +74,7 @@ function multiply(num1, num2) {
 
 function divide(num1, num2) {
     if (num2 === 0) {
-        return solutionOutput.textContent = "ERROR!"
+        return "ERROR!"
     } else {
         return num1 / num2
     }
@@ -76,12 +88,12 @@ function percentage(num) {
 
 function operate(num1, num2, operator) {
     if (operator == "add") {
-        return add(num1, num2)
+        return solutionOutput.textContent = add(num1, num2)
     } else if (operator == "subtract") {
-        return subtract(num1, num2)
+        return solutionOutput.textContent = subtract(num1, num2)
     } else if (operator == "multiply") {
-        return multiply(num1, num2)
+        return solutionOutput.textContent = multiply(num1, num2)
     } else if (operator == "divide") {
-        return divide(num1, num2)
+        return solutionOutput.textContent = divide(num1, num2)
     }
 }
