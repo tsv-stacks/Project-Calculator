@@ -30,3 +30,23 @@ function handleClick(e) {
     console.log(displayArray)
     console.log("array end = " + displayArray[displayArray.length - 1])
 }
+
+// else {
+//     console.log("id getting push = " + id)
+//     console.log(idCheck(id))
+//     displayArray.push(id)
+//     displayValue.textContent = displayArray.join('')
+
+//     console.log(displayArray)
+//     console.log("array end = " + displayArray[displayArray.length - 1])
+// }
+
+
+lengthCheck(displayArray)
+
+function lengthCheck(arr) {
+    if (arr.length > 14) {
+        let textSize = document.createElement('div11')
+        textSize.style["font-size"] = "large"
+    }
+}

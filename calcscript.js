@@ -14,10 +14,13 @@ displayValue.textContent = displayArray.join('')
 
 // add keyboard support
 
+// round solution if decimal
+
 // function to split array into two numbers
-
 function arrayToNum() {
-
+    console.log(displayArray)
+    // filter operators, save second and at end of function set it to operator
+    // second array to match operator with function to prevent overwriting
 
 
     console.log(displayArray)
@@ -45,37 +48,37 @@ function handleClick(e) {
     console.log("array end = " + arrayEnd)
     console.log(idCheck(arrayEnd))
 
-    if (displayArray.length == 0 && idCheck(id) == false) {
+    if (displayArray.length > 24) {
+        // arr max length = 24
+        return console.log("max length")
+    } else if (displayArray.length == 0 && idCheck(id) == false) {
         // prevent operator at start
         return operator = ""
-    }
-    else if (idCheck(id) == false && idCheck(arrayEnd) == false) {
+    } else if (idCheck(id) == false && idCheck(arrayEnd) == false) {
         return console.log("multiple operator error")
         // prevent operator after operator
-    }
-    else {
+    } else {
         console.log(id)
         console.log(displayArray)
         console.log(typeof (displayArray))
         displayArray.push(id);
         displayValue.textContent = displayArray.join('')
     }
-    // else {
-    //     console.log("id getting push = " + id)
-    //     console.log(idCheck(id))
-    //     displayArray.push(id)
-    //     displayValue.textContent = displayArray.join('')
+    console.log("array length = " + displayArray.length)
+    lengthCheck(displayArray)
+}
 
-    //     console.log(displayArray)
-    //     console.log("array end = " + displayArray[displayArray.length - 1])
-    // }
 
-    // // filter operators, save second and at end of function set it to operator
-    // if operator != blank then set new operator as operator at end of array to num function
-    //for loop (i - 1) to stop two operators in a row
-    // loop not required displayArray.pop() !== number && id != number not 3 === as string vs number
-    // second array to match operator with function to prevent overwriting
-    //14 max for array before shrinking array size - make new function
+
+// changes display array font dependent on length
+function lengthCheck(arr) {
+    if (arr.length < 13) {
+        return displayValue.style["font-size"] = "xx-large"
+    } else if (arr.length > 18) {
+        return displayValue.style["font-size"] = "large"
+    } else if (arr.length > 13) {
+        return displayValue.style["font-size"] = "x-large"
+    }
 }
 
 function idCheck(id) {
@@ -84,7 +87,6 @@ function idCheck(id) {
     } else {
         return id.match(/^[0-9]+$/) != null
     }
-
 }
 
 //backspace clear , if statement reset operator
