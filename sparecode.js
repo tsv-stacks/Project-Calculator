@@ -20,3 +20,13 @@ let doubleZeroButton = document.getElementsByClassName("div22")
 // function addinput() {
 //     displayArray.push(inputButton.textContent)
 // }
+
+function handleClick(e) {
+    let { id } = e.target
+    console.log("id getting push = " + id)
+    displayArray.push(id)
+    displayValue.textContent = displayArray.join('')
+
+    console.log(displayArray)
+    console.log("array end = " + displayArray[displayArray.length - 1])
+}
