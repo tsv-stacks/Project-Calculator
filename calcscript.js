@@ -6,6 +6,7 @@ let operator = ""
 let numbersinArray = []
 let operatorType = []
 let splitNumArray = []
+let result = 0
 
 displayValue.textContent = displayArray.join('')
 
@@ -64,19 +65,40 @@ function arrayToNum() {
     // stop when only two numbers left in array --- or one?
 
     // operate(num1, num2, operator)
+
     // clear function
 }
 
-function calculation() {
-    for (let i = 0; i < splitNumArray.length; i++) {
-        if (splitNumArray.length == 2) {
-            num1 = splitNumArray[0]
-            num2 = splitNumArray[1]
-            operator = operatorType[0]
-            return solutionOutput.textContent = operate(num1, num2, operator)
-        }
-    }
+function backendClear() {
 
+}
+
+function calculation() {
+    if (splitNumArray.length == 1) {
+        num1 = result
+        num2 = splitNumArray[0]
+        operator = operatorType[0]
+        result += operate(num1, num2, operator)
+        console.log(result)
+        return solutionOutput.textContent = result
+    } else if (splitNumArray.length == 2) {
+        num1 = splitNumArray[0]
+        num2 = splitNumArray[1]
+        operator = operatorType[0]
+        result += operate(num1, num2, operator)
+        console.log(result)
+        return solutionOutput.textContent = result
+    } else {
+        num1 = splitNumArray[0]
+        num2 = splitNumArray[1]
+        operator = operatorType[0]
+        splitNumArray.shift()
+        splitNumArray.shift()
+        operatorType.shift()
+        result += operate(num1, num2, operator)
+        console.log(result)
+        calculation()
+    }
 }
 
 function numberArrayGen() {
