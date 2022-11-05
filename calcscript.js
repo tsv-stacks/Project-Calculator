@@ -1,30 +1,93 @@
-// push number to array
-// operator selector button press adds code or function
-// push number to array
-// equals sign to calculate
-// operate function runs on = (takes 2 numbers & operator and returns)
-
 let displayArray = []
 
 let solutionOutput = document.getElementById("solution");
 let displayValue = document.getElementById("display-value");
 let operator = ""
+let numbersinArray = []
+let operatorType = []
+let splitNumArray = []
 
 displayValue.textContent = displayArray.join('')
 
 // add keyboard support
 
 // round solution if decimal
+// Math.round((num + Number.EPSILON) * 100) / 100
 
 // function to split array into two numbers
 function arrayToNum() {
     console.log(displayArray)
+    let operatorPosition = []
+
+
+    for (let i = 0; i < displayArray.length; i++) {
+        if (idCheck(displayArray[i]) == false) {
+            operatorPosition.push(i)
+        }
+    }
+
+    for (let i = 0; i < displayArray.length; i++) {
+        if (displayArray[i] == ' + ') {
+            operatorType.push("add")
+        } else if (displayArray[i] == ' − ') {
+            operatorType.push("subtract")
+        } else if (displayArray[i] == ' ÷ ') {
+            operatorType.push("divide")
+        } else if (displayArray[i] == " × ") {
+            operatorType.push("multiply")
+        }
+    }
+    // console.log(numberArrayGen())
+
+    console.log(operatorType)
+
+    let numbersinArray = numberArrayGen()
+    splitNumArray = numbersinArray.join("")
+    splitNumArray = splitNumArray.split(' ').map(Number)
+
+    console.log(splitNumArray)
+
+    calculation()
+
+    console.log(numbersinArray)
+    // console.log(operatorPosition)
+
     // filter operators, save second and at end of function set it to operator
     // second array to match operator with function to prevent overwriting
 
+    //replace operators in array with blank space, join with " "
 
-    console.log(displayArray)
+    // for of to push operators to array and numbers to array
+    // convert strings to numbers
+    // arrayNum[0] arrayNum[1] remove 0 once calculated
+
+    // stop when only two numbers left in array --- or one?
+
     // operate(num1, num2, operator)
+    // clear function
+}
+
+function calculation() {
+    for (let i = 0; i < splitNumArray.length; i++) {
+        if (splitNumArray.length == 2) {
+            num1 = splitNumArray[0]
+            num2 = splitNumArray[1]
+            operator = operatorType[0]
+            return solutionOutput.textContent = operate(num1, num2, operator)
+        }
+    }
+
+}
+
+function numberArrayGen() {
+    for (let i = 0; i < displayArray.length; i++) {
+        if (idCheck(displayArray[i]) == false) {
+            numbersinArray.push(" ")
+        } else {
+            numbersinArray.push(displayArray[i])
+        }
+    }
+    return numbersinArray
 }
 
 // pressing function sets operator
@@ -42,11 +105,11 @@ buttonInputs.forEach(buttonInput => {
 
 function handleClick(e) {
     let { id } = e.target
-    console.log(id)
-    console.log(displayArray.length)
+    // console.log(id)
+    // console.log(displayArray.length)
     let arrayEnd = displayArray[displayArray.length - 1]
-    console.log("array end = " + arrayEnd)
-    console.log(idCheck(arrayEnd))
+    // console.log("array end = " + arrayEnd)
+    // console.log(idCheck(arrayEnd))
 
     if (displayArray.length > 24) {
         // arr max length = 24
@@ -58,17 +121,15 @@ function handleClick(e) {
         return console.log("multiple operator error")
         // prevent operator after operator
     } else {
-        console.log(id)
-        console.log(displayArray)
-        console.log(typeof (displayArray))
+        // console.log(id)
+        // console.log(displayArray)
+        // console.log(typeof (displayArray))
         displayArray.push(id);
         displayValue.textContent = displayArray.join('')
     }
-    console.log("array length = " + displayArray.length)
+    // console.log("array length = " + displayArray.length)
     lengthCheck(displayArray)
 }
-
-
 
 // changes display array font dependent on length
 function lengthCheck(arr) {
