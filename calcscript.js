@@ -51,6 +51,8 @@ function arrayToNum() {
     calculation()
 
     console.log(numbersinArray)
+
+    backendClear()
     // console.log(operatorPosition)
 
     // filter operators, save second and at end of function set it to operator
@@ -70,7 +72,11 @@ function arrayToNum() {
 }
 
 function backendClear() {
-
+    result = 0
+    operator = ""
+    numbersinArray = []
+    operatorType = []
+    splitNumArray = []
 }
 
 function calculation() {
@@ -203,7 +209,7 @@ function multiply(num1, num2) {
 
 function divide(num1, num2) {
     if (num2 === 0) {
-        return "ERROR!"
+        return solutionOutput.textContent = "ERROR!"
     } else {
         return num1 / num2
     }
