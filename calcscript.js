@@ -46,9 +46,15 @@ function arrayToNum() {
     splitNumArray = splitNumArray.split(' ').map(Number)
 
     console.log(splitNumArray)
-    console.log(typeof splitNumArray)
+    console.log(splitNumArray.length)
+    console.log(operatorType)
+    console.log(operatorType.length)
+
 
     calculation()
+
+
+
 
     console.log(numbersinArray)
 
@@ -64,21 +70,32 @@ function backendClear() {
 }
 
 function calculation() {
-    if (splitNumArray.length == 1 && operatorType !== []) {
+    if (splitNumArray.length == 1 && operatorType.length == 0) {
+        console.log("single number")
+        return solutionOutput.textContent = splitNumArray
+    } else if (splitNumArray.length === 1 && operatorType.length >= 1) {
+        console.log("running 1")
         num1 = result
         num2 = splitNumArray[0]
         operator = operatorType[0]
-        result += operate(num1, num2, operator)
+        let finalresult = operate(num1, num2, operator)
+        console.log(operatorType)
         console.log(result)
-        return solutionOutput.textContent = Math.round((result + Number.EPSILON) * 1000000) / 1000000
-    } else if (splitNumArray.length == 2) {
+        return solutionOutput.textContent = Math.round((finalresult + Number.EPSILON) * 1000000) / 1000000
+    } else if (splitNumArray.length == 2 && operatorType.length == 1) {
+        console.log("running 2")
         num1 = splitNumArray[0]
         num2 = splitNumArray[1]
         operator = operatorType[0]
         result += operate(num1, num2, operator)
         console.log(result)
         return solutionOutput.textContent = Math.round((result + Number.EPSILON) * 1000000) / 1000000
+    } else if (splitNumArray.length === operatorType.length) {
+        console.log("extra operator at end")
+        operatorType.pop()
+        calculation()
     } else {
+        console.log("running 3")
         num1 = splitNumArray[0]
         num2 = splitNumArray[1]
         operator = operatorType[0]
