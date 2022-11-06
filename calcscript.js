@@ -13,52 +13,49 @@ displayValue.textContent = displayArray.join('')
 
 // code % button
 
-// fix number and pressing equal !== NaN
-
 // function to split array into two numbers
 function arrayToNum() {
+    let arrayEnd = displayArray[displayArray.length - 1]
     console.log(displayArray)
     let operatorPosition = []
 
-    for (let i = 0; i < displayArray.length; i++) {
-        if (idCheck(displayArray[i]) == false) {
-            operatorPosition.push(i)
+    if (idCheck(arrayEnd) == false) {
+        return console.log("incomplete expression")
+    } else {
+        for (let i = 0; i < displayArray.length; i++) {
+            if (idCheck(displayArray[i]) == false) {
+                operatorPosition.push(i)
+            }
         }
-    }
 
-    for (let i = 0; i < displayArray.length; i++) {
-        if (displayArray[i] == ' + ') {
-            operatorType.push("add")
-        } else if (displayArray[i] == ' − ') {
-            operatorType.push("subtract")
-        } else if (displayArray[i] == ' ÷ ') {
-            operatorType.push("divide")
-        } else if (displayArray[i] == " × ") {
-            operatorType.push("multiply")
+        for (let i = 0; i < displayArray.length; i++) {
+            if (displayArray[i] == ' + ') {
+                operatorType.push("add")
+            } else if (displayArray[i] == ' − ') {
+                operatorType.push("subtract")
+            } else if (displayArray[i] == ' ÷ ') {
+                operatorType.push("divide")
+            } else if (displayArray[i] == " × ") {
+                operatorType.push("multiply")
+            }
         }
+        // console.log(numberArrayGen())
+
+        console.log(operatorType)
+
+        let numbersinArray = numberArrayGen()
+        splitNumArray = numbersinArray.join("")
+        splitNumArray = splitNumArray.split(' ').map(Number)
+
+        console.log(numbersinArray)
+        console.log(splitNumArray)
+        console.log(splitNumArray.length)
+        console.log(operatorType)
+        console.log(operatorType.length)
+
+        calculation()
+        backendClear()
     }
-    // console.log(numberArrayGen())
-
-    console.log(operatorType)
-
-    let numbersinArray = numberArrayGen()
-    splitNumArray = numbersinArray.join("")
-    splitNumArray = splitNumArray.split(' ').map(Number)
-
-    console.log(splitNumArray)
-    console.log(splitNumArray.length)
-    console.log(operatorType)
-    console.log(operatorType.length)
-
-
-    calculation()
-
-
-
-
-    console.log(numbersinArray)
-
-    backendClear()
 }
 
 function backendClear() {

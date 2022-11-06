@@ -21,6 +21,10 @@ body {
   background-color: var(--grey);
 }
 
+header {
+  height: 3rem;
+}
+
 .hvr:hover {
   color: var(--black);
   background-color: var(--creme);
