@@ -133,7 +133,7 @@ function handleClick(e) {
     let { id } = e.target
     let arrayEnd = displayArray[displayArray.length - 1]
 
-    if (displayArray.length > 24) {
+    if (displayArray.join('').length > 36) {
         // arr max length = 24
         return console.log("max length")
     } else if (displayArray.length == 0 && idCheck(id) == false) {
@@ -152,11 +152,12 @@ function handleClick(e) {
 
 // changes display array font dependent on length
 function lengthCheck(arr) {
-    if (arr.length < 13) {
+    let a = arr.join('').length
+    if (a < 18) {
         return displayValue.style["font-size"] = "xx-large"
-    } else if (arr.length > 18) {
+    } else if (a > 27) {
         return displayValue.style["font-size"] = "large"
-    } else if (arr.length > 13) {
+    } else if (a > 18) {
         return displayValue.style["font-size"] = "x-large"
     }
 }
