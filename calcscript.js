@@ -1,6 +1,7 @@
 let displayArray = []
 let solutionOutput = document.getElementById("solution");
 let displayValue = document.getElementById("display-value");
+let memValue = document.getElementById("memory")
 let operator = ""
 let numbersinArray = []
 let operatorType = []
@@ -56,6 +57,15 @@ function arrayToNum() {
         calculation()
         backendClear()
     }
+}
+
+function memSave() {
+    let savedNumber = solutionOutput.textContent
+    memValue.textContent = savedNumber
+}
+
+function memClear() {
+    memValue.textContent = ""
 }
 
 function backendClear() {
