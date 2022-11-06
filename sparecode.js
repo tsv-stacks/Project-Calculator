@@ -50,3 +50,14 @@ function lengthCheck(arr) {
         textSize.style["font-size"] = "large"
     }
 }
+
+function decimal() {
+    for (let i = 0; i < displayArray.length; i++) {
+        if (displayArray[i] == ".") {
+            return console.log("only 1dp allowed")
+        } else {
+            displayArray.push(".")
+            return displayValue.textContent = displayArray.join('')
+        }
+    }
+}

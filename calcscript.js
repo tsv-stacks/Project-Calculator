@@ -1,5 +1,4 @@
 let displayArray = []
-
 let solutionOutput = document.getElementById("solution");
 let displayValue = document.getElementById("display-value");
 let operator = ""
@@ -12,14 +11,14 @@ displayValue.textContent = displayArray.join('')
 
 // add keyboard support
 
-// round solution if decimal
-// Math.round((num + Number.EPSILON) * 100) / 100
+// code % button
+
+// fix number and pressing equal !== NaN
 
 // function to split array into two numbers
 function arrayToNum() {
     console.log(displayArray)
     let operatorPosition = []
-
 
     for (let i = 0; i < displayArray.length; i++) {
         if (idCheck(displayArray[i]) == false) {
@@ -47,28 +46,13 @@ function arrayToNum() {
     splitNumArray = splitNumArray.split(' ').map(Number)
 
     console.log(splitNumArray)
+    console.log(typeof splitNumArray)
 
     calculation()
 
     console.log(numbersinArray)
 
     backendClear()
-    // console.log(operatorPosition)
-
-    // filter operators, save second and at end of function set it to operator
-    // second array to match operator with function to prevent overwriting
-
-    //replace operators in array with blank space, join with " "
-
-    // for of to push operators to array and numbers to array
-    // convert strings to numbers
-    // arrayNum[0] arrayNum[1] remove 0 once calculated
-
-    // stop when only two numbers left in array --- or one?
-
-    // operate(num1, num2, operator)
-
-    // clear function
 }
 
 function backendClear() {
@@ -80,20 +64,20 @@ function backendClear() {
 }
 
 function calculation() {
-    if (splitNumArray.length == 1) {
+    if (splitNumArray.length == 1 && operatorType !== []) {
         num1 = result
         num2 = splitNumArray[0]
         operator = operatorType[0]
         result += operate(num1, num2, operator)
         console.log(result)
-        return solutionOutput.textContent = result
+        return solutionOutput.textContent = Math.round((result + Number.EPSILON) * 1000000) / 1000000
     } else if (splitNumArray.length == 2) {
         num1 = splitNumArray[0]
         num2 = splitNumArray[1]
         operator = operatorType[0]
         result += operate(num1, num2, operator)
         console.log(result)
-        return solutionOutput.textContent = result
+        return solutionOutput.textContent = Math.round((result + Number.EPSILON) * 1000000) / 1000000
     } else {
         num1 = splitNumArray[0]
         num2 = splitNumArray[1]
@@ -118,9 +102,6 @@ function numberArrayGen() {
     return numbersinArray
 }
 
-// pressing function sets operator
-
-
 // Create the functions that populate the display when you click the number buttons. You should be storing the ‘display value’ in a variable somewhere for use in the next step.
 
 let inputButton = document.getElementsByClassName("input")
@@ -133,11 +114,7 @@ buttonInputs.forEach(buttonInput => {
 
 function handleClick(e) {
     let { id } = e.target
-    // console.log(id)
-    // console.log(displayArray.length)
     let arrayEnd = displayArray[displayArray.length - 1]
-    // console.log("array end = " + arrayEnd)
-    // console.log(idCheck(arrayEnd))
 
     if (displayArray.length > 24) {
         // arr max length = 24
@@ -149,9 +126,6 @@ function handleClick(e) {
         return console.log("multiple operator error")
         // prevent operator after operator
     } else {
-        // console.log(id)
-        // console.log(displayArray)
-        // console.log(typeof (displayArray))
         displayArray.push(id);
         displayValue.textContent = displayArray.join('')
     }
