@@ -11,8 +11,7 @@ let result = 0
 displayValue.textContent = displayArray.join('')
 
 // add keyboard support
-
-// code % button
+// code % and . button
 
 // function to split array into two numbers
 function arrayToNum() {
@@ -74,7 +73,6 @@ function memSave() {
         memValue.textContent = savedNumber
         console.log(typeof savedNumber)
     }
-
 }
 
 function memClear() {
