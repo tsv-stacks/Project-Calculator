@@ -60,8 +60,21 @@ function arrayToNum() {
 }
 
 function memSave() {
-    let savedNumber = solutionOutput.textContent
-    memValue.textContent = savedNumber
+    let arrayEnd = displayArray[displayArray.length - 1]
+    let savedNumber = ""
+
+    if (idCheck(arrayEnd) == false && memValue.textContent !== "") {
+        console.log(memValue.textContent)
+        let memRC = memValue.textContent
+
+        displayArray.push(memRC);
+        displayValue.textContent = displayArray.join('')
+    } else {
+        savedNumber = solutionOutput.textContent
+        memValue.textContent = savedNumber
+        console.log(typeof savedNumber)
+    }
+
 }
 
 function memClear() {
