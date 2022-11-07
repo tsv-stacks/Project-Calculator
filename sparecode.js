@@ -61,3 +61,12 @@ function decimal() {
         }
     }
 }
+
+
+function idCheck(id) {
+    if (id == undefined) {
+        return false
+    } else {
+        return id.match(/^[0-9]+$/) != null
+    }
+}
