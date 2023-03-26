@@ -8,10 +8,8 @@
 
 * {
   box-sizing: border-box;
-  /* border: 1px solid red; */
   font-family: "Lato", sans-serif;
   font-weight: bold;
-  /* regular, bold, bold italic */
 }
 
 html,
